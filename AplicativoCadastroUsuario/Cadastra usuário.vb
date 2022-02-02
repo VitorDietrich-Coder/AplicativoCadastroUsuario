@@ -6,9 +6,9 @@ Public Class Cadastra_usuário
     Public Conexao As Conexao = New Conexao()
 
 
-    Public Sub Cadastra_usuário(Codigo As Integer, Nome As String, Escolaridade As String, Bairro As String, Cidade As String, Estado As String, CEP As String)
+    Public Sub Cadastra_usuário(Codigo As Integer, Nome As String, Idade As Integer, Escolaridade As String, Bairro As String, Cidade As String, Estado As String, CEP As String)
 
-        cmd.CommandText = "Insert into  CadastroPessoa (Codigo, Nome, Escolaridade, Bairro, Cidade, Estado, CEP ) values ('" & Codigo & "','" & Nome & "','" & Escolaridade & "', '" & Bairro & "','" & Cidade & "','" & Estado & "' ,'" & CEP & "')"
+        cmd.CommandText = "Insert into  CadastroPessoa (Codigo, Nome, Idade, Escolaridade, Bairro, Cidade, Estado, CEP ) values ('" & Codigo & "','" & Nome & "', '" & Idade & "','" & Escolaridade & "', '" & Bairro & "','" & Cidade & "','" & Estado & "' ,'" & CEP & "')"
 
         Try
             cmd.Connection = Conexao.conectar()

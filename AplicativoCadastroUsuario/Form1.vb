@@ -18,7 +18,11 @@
 
         ElseIf Nome.Text = vbNullString Then
 
-            MessageBox.Show("Campo Nome está em brancoco")
+            MessageBox.Show("Campo Nome está em branco")
+
+        ElseIf Idade.Text = vbNullString Then
+
+            MessageBox.Show("Campo Idade está em branco")
 
         ElseIf Escolaridade.Text = vbNullString Then
 
@@ -46,11 +50,12 @@
 
             If Control.tem = False Then
 
-                valor.Cadastra_usuário(Integer.Parse(Codigo.Text), Nome.Text, Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
+                valor.Cadastra_usuário(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
                 MessageBox.Show(valor.mensagem)
 
                 Codigo.Text = ""
                 Nome.Text = ""
+                Idade.Text = ""
                 Escolaridade.Text = ""
                 Bairro.Text = ""
                 Cidade.Text = ""
@@ -63,17 +68,19 @@
                 If MsgBox("Esse cadastro já existe, deseja alterar o cadastro?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
 
-                    Altera.AlteraCadastro(Integer.Parse(Codigo.Text), Nome.Text, Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
+                    Altera.AlteraCadastro(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
 
                     MessageBox.Show(Altera.mensagem)
 
                     Codigo.Text = ""
                     Nome.Text = ""
+                    Idade.Text = ""
                     Escolaridade.Text = ""
                     Bairro.Text = ""
                     Cidade.Text = ""
                     Estado.Text = ""
                     CEP.Text = ""
+
                     DataGridView1.DataSource = pesquisa.PesquisaProduto()
 
                 Else
@@ -101,6 +108,7 @@
 
                 Codigo.Text = ""
                 Nome.Text = ""
+                Idade.Text = ""
                 Escolaridade.Text = ""
                 Bairro.Text = ""
                 Cidade.Text = ""
@@ -124,11 +132,12 @@
     End Sub
 
     Private Sub Pesquisa_ProdutoKeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
-        Dim pesquisa As PesquisaProduto = New PesquisaProduto()
+        Dim pesquisa As BuscaProdutoINPUTvb = New BuscaProdutoINPUTvb()
 
         If e.KeyChar = Convert.ToChar(Keys.Return) Then
 
-            DataGridView1.DataSource = pesquisa.PesquisaProduto()
+            DataGridView1.DataSource = pesquisa.BuscaProdutoINPUTvb(TextBox1.Text)
+
 
             MessageBox.Show(pesquisa.mensagem)
         End If
@@ -139,7 +148,8 @@
 
 
         DataGridView1.DataSource = pesquisa.PesquisaProduto()
-        DataGridView1.Columns.Remove("id")
+        DataGridView1.Columns("Id").Visible = False
+
 
 
 
@@ -151,6 +161,7 @@
 
         Dim codigo2 As Integer = Convert.ToInt32(DataGridView1.SelectedRows(0).Cells("Codigo").Value.ToString())
         Dim Nome2 As String = DataGridView1.SelectedRows(0).Cells("Nome").Value.ToString()
+        Dim Idade2 As String = DataGridView1.SelectedRows(0).Cells("Idade").Value.ToString()
         Dim Escolaridade2 As String = DataGridView1.SelectedRows(0).Cells("Escolaridade").Value.ToString()
         Dim Bairro2 As String = DataGridView1.SelectedRows(0).Cells("Bairro").Value.ToString()
         Dim Cidade2 As String = DataGridView1.SelectedRows(0).Cells("Cidade").Value.ToString()
@@ -161,6 +172,7 @@
 
         Codigo.Text = Convert.ToString(codigo2)
         Nome.Text = Nome2
+        Idade.Text = Idade2
         Escolaridade.Text = Escolaridade2
         Bairro.Text = Bairro2
         Cidade.Text = Cidade2
@@ -169,4 +181,42 @@
 
 
     End Sub
+
+    Private Sub Busca_CEP(sender As Object, e As KeyPressEventArgs) Handles CEP.KeyPress
+
+        If e.KeyChar = Convert.ToChar(Keys.Return) Then
+            Try
+                Dim ds As New DataSet()
+                Dim xml As String = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", CEP.Text)
+                ds.ReadXml(xml)
+                Bairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
+                Cidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
+                Estado.Text = ds.Tables(0).Rows(0)("uf").ToString()
+
+
+            Catch ex As Exception
+
+                MessageBox.Show("Digite um valor valido")
+
+            End Try
+        End If
+
+    End Sub
+
+    Private Sub Codigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Codigo.KeyPress
+
+        If Not (Char.IsDigit(e.KeyChar) OrElse Char.IsControl(e.KeyChar)) Then
+            e.Handled = True
+
+        End If
+
+    End Sub
+
+    Private Sub Idade_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Idade.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) OrElse Char.IsControl(e.KeyChar)) Then
+            e.Handled = True
+
+        End If
+    End Sub
 End Class
+
