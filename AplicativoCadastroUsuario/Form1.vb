@@ -38,7 +38,7 @@
 
             MessageBox.Show("Campo Estado está em branco")
 
-        ElseIf CEP.Text = vbNullString Then
+        ElseIf (CEP.Text = vbNullString) Or (CEP.Text.Length < 9) Then
 
             MessageBox.Show("Campo Cep está em branco")
 
