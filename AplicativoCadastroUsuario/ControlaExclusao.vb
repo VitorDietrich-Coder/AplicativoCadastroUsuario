@@ -16,11 +16,7 @@
         Return tem
 
     End Function
-    Public Function Cadastrar(Codigo As Integer) As Integer
 
-        Return mensagem
-
-    End Function
 
 End Class
 

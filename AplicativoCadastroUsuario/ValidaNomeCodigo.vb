@@ -9,7 +9,7 @@ Public Class ValidaNomeCodigo
     Public dr As SqlDataReader
 
 
-    Public Function ValidaNomeCodigo2(Codigo As Integer, Nome As String) As Boolean
+    Public Function ValidaNomeCodigo(Codigo As Integer, Nome As String) As Boolean
 
         cmd.CommandText = "select * from CadastroPessoa where Codigo = '" & Codigo & "' or Nome = '" & Nome & "'"
 
@@ -26,7 +26,7 @@ Public Class ValidaNomeCodigo
         Catch SqlException As Exception
 
 
-            Me.mensagem = "erro com banco de dados"
+            Me.mensagem = "erro de Conexao com banco de dados"
 
 
         End Try

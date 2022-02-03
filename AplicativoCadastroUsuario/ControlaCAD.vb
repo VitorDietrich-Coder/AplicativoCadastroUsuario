@@ -6,7 +6,7 @@
 
     Public Function acessar(Codigo As Integer, Nome As String) As Boolean
         Dim valida As ValidaNomeCodigo = New ValidaNomeCodigo()
-        tem = valida.ValidaNomeCodigo2(Codigo, Nome)
+        tem = valida.ValidaNomeCodigo(Codigo, Nome)
 
         If valida.mensagem.Equals("") Then
 
@@ -16,10 +16,6 @@
         Return tem
 
     End Function
-    Public Function Cadastrar(Codigo As Integer, Nome As String) As String
 
-        Return mensagem
-
-    End Function
 
 End Class
