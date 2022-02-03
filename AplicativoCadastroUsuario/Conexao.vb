@@ -10,7 +10,6 @@ Public Class Conexao
 
         Conn.ConnectionString = "Data Source=LAPTOP-CE4Q030Q; Initial Catalog=CadastroPessoa;Integrated Security=True"
 
-
     End Sub
 
     Public Function conectar() As SqlConnection

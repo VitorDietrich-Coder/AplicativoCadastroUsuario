@@ -9,7 +9,6 @@
         Dim Control As ControlaCAD = New ControlaCAD()
         Dim cancela As MsgBoxResult = New MsgBoxResult()
 
-
         If Codigo.Text = vbNullString Then
 
             MessageBox.Show("Campo Código está em branco")
