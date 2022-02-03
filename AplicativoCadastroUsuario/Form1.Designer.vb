@@ -47,6 +47,7 @@ Partial Class Form1
         Me.Idade = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -87,7 +88,7 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(731, 234)
+        Me.Button1.Location = New System.Drawing.Point(738, 235)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(163, 42)
         Me.Button1.TabIndex = 3
@@ -165,7 +166,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(394, 234)
+        Me.Button2.Location = New System.Drawing.Point(543, 235)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(140, 42)
         Me.Button2.TabIndex = 3
@@ -262,6 +263,7 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.Nome)
         Me.Panel1.Controls.Add(Me.Idade)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -289,6 +291,15 @@ Partial Class Form1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1333, 690)
         Me.Panel1.TabIndex = 13
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(397, 237)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(93, 40)
+        Me.Button3.TabIndex = 13
+        Me.Button3.Text = "Limpar Dados"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -331,4 +342,5 @@ Partial Class Form1
     Friend WithEvents Label10 As Label
     Friend WithEvents Panel1 As Panel
     Public WithEvents Codigo As TextBox
+    Friend WithEvents Button3 As Button
 End Class

@@ -101,37 +101,37 @@
 
             Controla.acessa(Codigo.Text)
 
-        End If
 
 
-        If Controla.tem = True Then
 
-            If MsgBox("Deseja mesmo excluir esse cadastro? Se realizar esssa operação a mesma não pode ser desfeita", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                excluir.ExcluiCadastro(Integer.Parse(Codigo.Text))
-                MessageBox.Show(excluir.mensagem)
+            If Controla.tem = True Then
 
-                Codigo.Text = ""
-                Nome.Text = ""
-                Idade.Text = ""
-                Escolaridade.Text = ""
-                Bairro.Text = ""
-                Cidade.Text = ""
-                Estado.Text = ""
-                CEP.Text = ""
+                If MsgBox("Deseja mesmo excluir esse cadastro? Se realizar esssa operação a mesma não pode ser desfeita", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    excluir.ExcluiCadastro(Integer.Parse(Codigo.Text))
+                    MessageBox.Show(excluir.mensagem)
 
-                DataGridView1.DataSource = pesquisa.PesquisaProduto()
+                    Codigo.Text = ""
+                    Nome.Text = ""
+                    Idade.Text = ""
+                    Escolaridade.Text = ""
+                    Bairro.Text = ""
+                    Cidade.Text = ""
+                    Estado.Text = ""
+                    CEP.Text = ""
 
+                    DataGridView1.DataSource = pesquisa.PesquisaProduto()
+
+                Else
+
+                    Exit Sub
+
+                End If
             Else
 
-                Exit Sub
+                MessageBox.Show("Esse código não existe, favor cadastre o mesmo")
 
             End If
-        Else
-
-            MessageBox.Show("Esse código não existe, favor cadastre o mesmo")
-
         End If
-
     End Sub
 
     Private Sub Pesquisa_ProdutoKeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
@@ -239,6 +239,36 @@
 
         End Try
 
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Codigo.Text = ""
+        Nome.Text = ""
+        Idade.Text = ""
+        Escolaridade.Text = ""
+        Bairro.Text = ""
+        Cidade.Text = ""
+        Estado.Text = ""
+        CEP.Text = ""
+    End Sub
+
+    Private Sub Form_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        If (Codigo.Text = vbNullString) And (Nome.Text = vbNullString) And (Idade.Text = vbNullString) And (Escolaridade.Text = vbNullString) And (Bairro.Text = vbNullString) And (Cidade.Text = vbNullString) And (Estado.Text = vbNullString) And (Not (CEP.Text.Length = 9)) Then
+
+
+        Else
+
+            If MsgBox("Deseja mesmo sair sem salvar?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+                Exit Sub
+
+            Else
+                e.Cancel = True
+
+
+            End If
+        End If
     End Sub
 End Class
 
