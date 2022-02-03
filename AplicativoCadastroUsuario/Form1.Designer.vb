@@ -46,14 +46,16 @@ Partial Class Form1
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Idade = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(182, 75)
+        Me.Label1.Location = New System.Drawing.Point(264, 68)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(46, 15)
         Me.Label1.TabIndex = 0
@@ -62,7 +64,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(296, 75)
+        Me.Label2.Location = New System.Drawing.Point(378, 68)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 15)
         Me.Label2.TabIndex = 1
@@ -70,21 +72,21 @@ Partial Class Form1
         '
         'Codigo
         '
-        Me.Codigo.Location = New System.Drawing.Point(182, 93)
+        Me.Codigo.Location = New System.Drawing.Point(264, 86)
         Me.Codigo.Name = "Codigo"
         Me.Codigo.Size = New System.Drawing.Size(77, 23)
         Me.Codigo.TabIndex = 2
         '
         'Nome
         '
-        Me.Nome.Location = New System.Drawing.Point(296, 93)
+        Me.Nome.Location = New System.Drawing.Point(378, 86)
         Me.Nome.Name = "Nome"
         Me.Nome.Size = New System.Drawing.Size(409, 23)
         Me.Nome.TabIndex = 2
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(602, 241)
+        Me.Button1.Location = New System.Drawing.Point(684, 234)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(163, 42)
         Me.Button1.TabIndex = 3
@@ -94,7 +96,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(296, 156)
+        Me.Label3.Location = New System.Drawing.Point(378, 149)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 15)
         Me.Label3.TabIndex = 0
@@ -103,7 +105,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(723, 156)
+        Me.Label4.Location = New System.Drawing.Point(805, 149)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(42, 15)
         Me.Label4.TabIndex = 1
@@ -111,14 +113,14 @@ Partial Class Form1
         '
         'Cidade
         '
-        Me.Cidade.Location = New System.Drawing.Point(296, 174)
+        Me.Cidade.Location = New System.Drawing.Point(378, 167)
         Me.Cidade.Name = "Cidade"
         Me.Cidade.Size = New System.Drawing.Size(409, 23)
         Me.Cidade.TabIndex = 2
         '
         'Estado
         '
-        Me.Estado.Location = New System.Drawing.Point(723, 174)
+        Me.Estado.Location = New System.Drawing.Point(805, 167)
         Me.Estado.Name = "Estado"
         Me.Estado.Size = New System.Drawing.Size(77, 23)
         Me.Estado.TabIndex = 2
@@ -126,7 +128,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(182, 156)
+        Me.Label5.Location = New System.Drawing.Point(264, 149)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(38, 15)
         Me.Label5.TabIndex = 0
@@ -135,7 +137,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(829, 156)
+        Me.Label6.Location = New System.Drawing.Point(911, 149)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(28, 15)
         Me.Label6.TabIndex = 1
@@ -144,7 +146,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(829, 75)
+        Me.Label7.Location = New System.Drawing.Point(911, 68)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(73, 15)
         Me.Label7.TabIndex = 0
@@ -152,14 +154,14 @@ Partial Class Form1
         '
         'Bairro
         '
-        Me.Bairro.Location = New System.Drawing.Point(182, 174)
+        Me.Bairro.Location = New System.Drawing.Point(264, 167)
         Me.Bairro.Name = "Bairro"
         Me.Bairro.Size = New System.Drawing.Size(95, 23)
         Me.Bairro.TabIndex = 2
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(312, 241)
+        Me.Button2.Location = New System.Drawing.Point(394, 234)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(140, 42)
         Me.Button2.TabIndex = 3
@@ -170,7 +172,7 @@ Partial Class Form1
         '
         Me.Escolaridade.FormattingEnabled = True
         Me.Escolaridade.Items.AddRange(New Object() {"Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Pós-Graduação"})
-        Me.Escolaridade.Location = New System.Drawing.Point(829, 93)
+        Me.Escolaridade.Location = New System.Drawing.Point(911, 86)
         Me.Escolaridade.Name = "Escolaridade"
         Me.Escolaridade.Size = New System.Drawing.Size(126, 23)
         Me.Escolaridade.TabIndex = 4
@@ -179,7 +181,7 @@ Partial Class Form1
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.Location = New System.Drawing.Point(461, 28)
+        Me.Label8.Location = New System.Drawing.Point(543, 21)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(164, 30)
         Me.Label8.TabIndex = 6
@@ -190,25 +192,25 @@ Partial Class Form1
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(182, 429)
+        Me.DataGridView1.Location = New System.Drawing.Point(246, 422)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(773, 200)
+        Me.DataGridView1.Size = New System.Drawing.Size(807, 235)
         Me.DataGridView1.TabIndex = 7
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(216, 391)
+        Me.TextBox1.Location = New System.Drawing.Point(298, 384)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(739, 23)
         Me.TextBox1.TabIndex = 9
         '
         'CEP
         '
-        Me.CEP.Location = New System.Drawing.Point(829, 174)
+        Me.CEP.Location = New System.Drawing.Point(911, 167)
         Me.CEP.Mask = "00000-000"
         Me.CEP.Name = "CEP"
         Me.CEP.Size = New System.Drawing.Size(126, 23)
@@ -218,9 +220,9 @@ Partial Class Form1
         '
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox1.Location = New System.Drawing.Point(182, 391)
+        Me.PictureBox1.Location = New System.Drawing.Point(264, 384)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(38, 23)
+        Me.PictureBox1.Size = New System.Drawing.Size(34, 23)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
@@ -229,7 +231,7 @@ Partial Class Form1
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label9.Location = New System.Drawing.Point(461, 333)
+        Me.Label9.Location = New System.Drawing.Point(543, 326)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(131, 30)
         Me.Label9.TabIndex = 6
@@ -237,7 +239,7 @@ Partial Class Form1
         '
         'Idade
         '
-        Me.Idade.Location = New System.Drawing.Point(723, 93)
+        Me.Idade.Location = New System.Drawing.Point(805, 86)
         Me.Idade.Name = "Idade"
         Me.Idade.Size = New System.Drawing.Size(92, 23)
         Me.Idade.TabIndex = 12
@@ -245,52 +247,62 @@ Partial Class Form1
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(723, 75)
+        Me.Label10.Location = New System.Drawing.Point(805, 68)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(36, 15)
         Me.Label10.TabIndex = 1
         Me.Label10.Text = "Idade"
         '
+        'Panel1
+        '
+        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.Controls.Add(Me.Nome)
+        Me.Panel1.Controls.Add(Me.Idade)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.CEP)
+        Me.Panel1.Controls.Add(Me.Label10)
+        Me.Panel1.Controls.Add(Me.TextBox1)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.DataGridView1)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.Label9)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.Label8)
+        Me.Panel1.Controls.Add(Me.Codigo)
+        Me.Panel1.Controls.Add(Me.Escolaridade)
+        Me.Panel1.Controls.Add(Me.Label7)
+        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.Bairro)
+        Me.Panel1.Controls.Add(Me.Estado)
+        Me.Panel1.Controls.Add(Me.Cidade)
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1333, 690)
+        Me.Panel1.TabIndex = 13
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1136, 656)
-        Me.Controls.Add(Me.Idade)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.CEP)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Escolaridade)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Estado)
-        Me.Controls.Add(Me.Nome)
-        Me.Controls.Add(Me.Cidade)
-        Me.Controls.Add(Me.Bairro)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Codigo)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.ClientSize = New System.Drawing.Size(1333, 689)
+        Me.Controls.Add(Me.Panel1)
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = " "
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Codigo As TextBox
     Friend WithEvents Nome As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Label3 As Label
@@ -311,4 +323,6 @@ Partial Class Form1
     Public WithEvents DataGridView1 As DataGridView
     Friend WithEvents Idade As TextBox
     Friend WithEvents Label10 As Label
+    Friend WithEvents Panel1 As Panel
+    Public WithEvents Codigo As TextBox
 End Class

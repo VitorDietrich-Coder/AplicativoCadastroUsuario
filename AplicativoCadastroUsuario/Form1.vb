@@ -5,8 +5,6 @@
 
     Public Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-
-
         Dim Altera As AlteraCadastro = New AlteraCadastro()
         Dim Control As ControlaCAD = New ControlaCAD()
         Dim cancela As MsgBoxResult = New MsgBoxResult()
@@ -67,7 +65,6 @@
 
                 If MsgBox("Esse cadastro já existe, deseja alterar o cadastro?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
-
                     Altera.AlteraCadastro(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
 
                     MessageBox.Show(Altera.mensagem)
@@ -97,7 +94,15 @@
     Public Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim excluir As ExcluiCadastro = New ExcluiCadastro()
         Dim Controla As ControlaExclusao = New ControlaExclusao()
-        Controla.acessa(Codigo.Text)
+
+        If Codigo.Text = vbNullString Then
+
+            MessageBox.Show("Selecione o cliente no qual deseja fazer a exclusão")
+        Else
+
+            Controla.acessa(Codigo.Text)
+
+        End If
 
 
         If Controla.tem = True Then
@@ -120,14 +125,13 @@
             Else
 
                 Exit Sub
-            End If
 
+            End If
         Else
 
             MessageBox.Show("Esse código não existe, favor cadastre o mesmo")
 
         End If
-
 
     End Sub
 
@@ -138,20 +142,14 @@
 
             DataGridView1.DataSource = pesquisa.BuscaProdutoINPUTvb(TextBox1.Text)
 
-
-            MessageBox.Show(pesquisa.mensagem)
         End If
     End Sub
 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim pesquisa As PesquisaProduto = New PesquisaProduto()
 
-
         DataGridView1.DataSource = pesquisa.PesquisaProduto()
         DataGridView1.Columns("Id").Visible = False
-
-
-
 
     End Sub
 
@@ -168,8 +166,6 @@
         Dim Estado2 As String = DataGridView1.SelectedRows(0).Cells("Estado").Value.ToString()
         Dim Cep2 As String = DataGridView1.SelectedRows(0).Cells("Cep").Value.ToString()
 
-
-
         Codigo.Text = Convert.ToString(codigo2)
         Nome.Text = Nome2
         Idade.Text = Idade2
@@ -179,27 +175,6 @@
         Estado.Text = Estado2
         CEP.Text = Cep2
 
-
-    End Sub
-
-    Private Sub Busca_CEP(sender As Object, e As KeyPressEventArgs) Handles CEP.KeyPress
-
-        If e.KeyChar = Convert.ToChar(Keys.Return) Then
-            Try
-                Dim ds As New DataSet()
-                Dim xml As String = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", CEP.Text)
-                ds.ReadXml(xml)
-                Bairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
-                Cidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
-                Estado.Text = ds.Tables(0).Rows(0)("uf").ToString()
-
-
-            Catch ex As Exception
-
-                MessageBox.Show("Digite um valor valido")
-
-            End Try
-        End If
 
     End Sub
 
@@ -217,6 +192,54 @@
             e.Handled = True
 
         End If
+    End Sub
+
+    Private Sub Sair_Box(sender As Object, e As EventArgs) Handles Codigo.Leave
+        Dim Controla As ControlaExclusao = New ControlaExclusao()
+        Dim busca As BuscaInformações = New BuscaInformações()
+
+        If Codigo.Text = vbNullString Then
+
+            MessageBox.Show("Selecione um código de cliente valido")
+
+        Else
+
+            Controla.acessa(Codigo.Text)
+
+            If Controla.tem Then
+
+                busca.BuscaInformações(Integer.Parse(Codigo.Text))
+
+                Nome.Text = busca.Nome2
+                Idade.Text = busca.Idade2
+                Escolaridade.Text = busca.Escolaridade2
+                Bairro.Text = busca.Bairro2
+                Cidade.Text = busca.Cidade2
+                Estado.Text = busca.Estado2
+                CEP.Text = busca.Cep2
+
+            End If
+        End If
+    End Sub
+
+    Private Sub Busca_cep(sender As Object, e As EventArgs) Handles CEP.Leave
+
+
+        Try
+            Dim ds As New DataSet()
+            Dim xml As String = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", CEP.Text)
+            ds.ReadXml(xml)
+            Bairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
+            Cidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
+            Estado.Text = ds.Tables(0).Rows(0)("uf").ToString()
+
+
+        Catch ex As Exception
+
+            MessageBox.Show("Digite um valor valido")
+
+        End Try
+
     End Sub
 End Class
 

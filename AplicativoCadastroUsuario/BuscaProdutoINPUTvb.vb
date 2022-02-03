@@ -11,7 +11,7 @@ Public Class BuscaProdutoINPUTvb
 
     Public Function BuscaProdutoINPUTvb(Codigo As String) As DataTable
 
-        cmd.CommandText = "Select * From CadastroPessoa where Codigo like '%" + Codigo + "' or Nome Like '%" + Codigo + "' or Idade Like '%" + Codigo + "' "
+        cmd.CommandText = "Select * From CadastroPessoa where Codigo like '%" + Codigo + "' or Nome Like '%" + Codigo + "'or Idade Like '%" + Codigo + "' or Escolaridade Like '%" + Codigo + "' or Bairro Like '%" + Codigo + "' or Cidade Like '%" + Codigo + "' or Estado Like '%" + Codigo + "'  or CEP Like '%" + Codigo + "'"
 
         Try
 
@@ -29,9 +29,6 @@ Public Class BuscaProdutoINPUTvb
 
                 mensagem = "Não foram localizados dados para este critério."
 
-            Else
-
-                mensagem = "deu boa na pesquisa"
             End If
 
             Return dt
