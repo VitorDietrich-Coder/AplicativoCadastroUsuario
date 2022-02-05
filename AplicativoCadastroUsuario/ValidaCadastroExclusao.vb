@@ -6,6 +6,7 @@ Public Class ValidaCadastroExclusao
     Public cmd As New SqlCommand()
     Public con As New Conexao()
     Public dr As SqlDataReader
+
     Public Function ValidaCadastroExclusao(Codigo As Integer) As Boolean
 
         cmd.CommandText = "select * from CadastroPessoa where Codigo = '" & Codigo & "'"
@@ -21,9 +22,7 @@ Public Class ValidaCadastroExclusao
 
         Catch SqlException As Exception
 
-
-            Me.mensagem = "erro com banco de dados"
-
+            Me.mensagem = "erro de conexao"
 
         End Try
 

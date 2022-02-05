@@ -10,8 +10,6 @@ Public Class PesquisaProduto
 
     Public Function PesquisaProduto() As DataTable
 
-
-
         cmd.CommandText = "Select * From CadastroPessoa "
 
         Try
@@ -30,9 +28,6 @@ Public Class PesquisaProduto
 
                 mensagem = "Não foram localizados dados para este critério."
 
-            Else
-
-                mensagem = "deu boa na pesquisa"
             End If
 
             Return dt

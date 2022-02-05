@@ -2,7 +2,6 @@
 
 Public Class BuscaProdutoINPUTvb
 
-
     Public Conexao As Conexao = New Conexao()
     Public dr As SqlDataReader
     Public mensagem As String = ""

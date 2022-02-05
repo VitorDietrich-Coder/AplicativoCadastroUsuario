@@ -1,4 +1,5 @@
 ﻿Public Class Form1
+
     Public pesquisa As PesquisaProduto = New PesquisaProduto()
     Public valor As Cadastra_usuário = New Cadastra_usuário()
     Public Control As ControlaCAD = New ControlaCAD()
@@ -42,7 +43,6 @@
             MessageBox.Show("Campo Cep está em branco")
 
         Else
-
             Control.acessar(Integer.Parse(Codigo.Text), Nome.Text)
 
             If Control.tem = False Then
@@ -85,7 +85,6 @@
 
                 End If
             End If
-
         End If
 
     End Sub
@@ -100,9 +99,6 @@
         Else
 
             Controla.acessa(Codigo.Text)
-
-
-
 
             If Controla.tem = True Then
 
@@ -174,7 +170,6 @@
         Estado.Text = Estado2
         CEP.Text = Cep2
 
-
     End Sub
 
     Private Sub Codigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Codigo.KeyPress
@@ -223,7 +218,6 @@
 
     Private Sub Busca_cep(sender As Object, e As EventArgs) Handles CEP.Leave
 
-
         Try
             Dim ds As New DataSet()
             Dim xml As String = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", CEP.Text)
@@ -231,7 +225,6 @@
             Bairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
             Cidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
             Estado.Text = ds.Tables(0).Rows(0)("uf").ToString()
-
 
         Catch ex As Exception
 
@@ -242,6 +235,7 @@
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
         Codigo.Text = ""
         Nome.Text = ""
         Idade.Text = ""
@@ -250,12 +244,12 @@
         Cidade.Text = ""
         Estado.Text = ""
         CEP.Text = ""
+
     End Sub
 
     Private Sub Form_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         If (Codigo.Text = vbNullString) And (Nome.Text = vbNullString) And (Idade.Text = vbNullString) And (Escolaridade.Text = vbNullString) And (Bairro.Text = vbNullString) And (Cidade.Text = vbNullString) And (Estado.Text = vbNullString) And (Not (CEP.Text.Length = 9)) Then
-
 
         Else
 
@@ -264,8 +258,8 @@
                 Exit Sub
 
             Else
-                e.Cancel = True
 
+                e.Cancel = True
 
             End If
         End If
