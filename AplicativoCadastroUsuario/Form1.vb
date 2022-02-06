@@ -250,16 +250,7 @@
                 CEP.Text = busca.Cep2
 
 
-            Else
 
-
-                Nome.Text = ""
-                Idade.Text = ""
-                Escolaridade.Text = ""
-                Bairro.Text = ""
-                Cidade.Text = ""
-                Estado.Text = ""
-                CEP.Text = ""
 
 
             End If
