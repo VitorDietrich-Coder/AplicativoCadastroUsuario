@@ -8,7 +8,6 @@
 
         Dim Altera As AlteraCadastro = New AlteraCadastro()
         Dim Control As ControlaCAD = New ControlaCAD()
-
         Dim Codigo3 As Valida_Nome = New Valida_Nome()
 
         Dim cancela As MsgBoxResult = New MsgBoxResult()
@@ -52,7 +51,7 @@
             If Control.tem Then
 
 
-                If MsgBox("Esse Nome ou Código de cadastro já está cadastrado em nossa base de dados, deseja alterar o mesmo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                If MsgBox("Esse Nome ou código já está cadastrado em nossa base de dados, deseja alterar o cadastro já existente?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
                     If Nome.Text = Codigo3.Nome2 Then
 
@@ -228,9 +227,11 @@
         Dim Controla As ControlaExclusao = New ControlaExclusao()
         Dim busca As BuscaInformações = New BuscaInformações()
 
+
+
         If Codigo.Text = vbNullString Then
 
-            MessageBox.Show("Selecione um código de cliente valido")
+
 
         Else
 
@@ -247,6 +248,19 @@
                 Cidade.Text = busca.Cidade2
                 Estado.Text = busca.Estado2
                 CEP.Text = busca.Cep2
+
+
+            Else
+
+
+                Nome.Text = ""
+                Idade.Text = ""
+                Escolaridade.Text = ""
+                Bairro.Text = ""
+                Cidade.Text = ""
+                Estado.Text = ""
+                CEP.Text = ""
+
 
             End If
         End If
