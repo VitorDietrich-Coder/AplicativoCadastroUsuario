@@ -131,11 +131,11 @@
     End Sub
 
     Private Sub Pesquisa_ProdutoKeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
-        Dim pesquisa As BuscaProdutoINPUTvb = New BuscaProdutoINPUTvb()
+        Dim pesquisa As BuscaProdutoInput = New BuscaProdutoInput()
 
         If e.KeyChar = Convert.ToChar(Keys.Return) Then
 
-            DataGridView1.DataSource = pesquisa.BuscaProdutoINPUTvb(TextBox1.Text)
+            DataGridView1.DataSource = pesquisa.BuscaProdutoInput(TextBox1.Text)
 
         End If
     End Sub

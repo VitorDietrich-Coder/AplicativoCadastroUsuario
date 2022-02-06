@@ -186,7 +186,7 @@ Partial Class Form1
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.Location = New System.Drawing.Point(543, 21)
+        Me.Label8.Location = New System.Drawing.Point(543, 23)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(164, 30)
         Me.Label8.TabIndex = 6

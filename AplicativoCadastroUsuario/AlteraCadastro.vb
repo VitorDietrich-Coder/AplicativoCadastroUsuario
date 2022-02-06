@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+
 Public Class AlteraCadastro
 
     Public mensagem As String
@@ -15,7 +16,6 @@ Public Class AlteraCadastro
             cmd.ExecuteNonQuery()
 
             Me.mensagem = "Cadastro Alterado com sucesso"
-
 
         Catch ex As Exception
 
