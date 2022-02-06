@@ -74,6 +74,7 @@ Partial Class Form1
         'Codigo
         '
         Me.Codigo.Location = New System.Drawing.Point(247, 86)
+        Me.Codigo.MaxLength = 100000
         Me.Codigo.Name = "Codigo"
         Me.Codigo.Size = New System.Drawing.Size(97, 23)
         Me.Codigo.TabIndex = 2
@@ -186,7 +187,7 @@ Partial Class Form1
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.Location = New System.Drawing.Point(543, 23)
+        Me.Label8.Location = New System.Drawing.Point(561, 26)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(164, 30)
         Me.Label8.TabIndex = 6
@@ -198,13 +199,13 @@ Partial Class Form1
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(247, 392)
+        Me.DataGridView1.Location = New System.Drawing.Point(101, 392)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(807, 235)
+        Me.DataGridView1.Size = New System.Drawing.Size(1139, 235)
         Me.DataGridView1.TabIndex = 7
         '
         'TextBox1

@@ -8,6 +8,9 @@
 
         Dim Altera As AlteraCadastro = New AlteraCadastro()
         Dim Control As ControlaCAD = New ControlaCAD()
+
+        Dim Codigo3 As Valida_Nome = New Valida_Nome()
+
         Dim cancela As MsgBoxResult = New MsgBoxResult()
 
         If Codigo.Text = vbNullString Then
@@ -43,9 +46,59 @@
             MessageBox.Show("Campo Cep está em branco")
 
         Else
+            Codigo3.Valida_Nome(Nome.Text)
             Control.acessar(Integer.Parse(Codigo.Text), Nome.Text)
 
-            If Control.tem = False Then
+            If Control.tem Then
+
+
+                If MsgBox("Esse Nome ou Código de cadastro já está cadastrado em nossa base de dados, deseja alterar o mesmo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+                    If Nome.Text = Codigo3.Nome2 Then
+
+                        Altera.AlteraCadastro(Codigo3.Codigo2, Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
+
+                        MessageBox.Show(Altera.mensagem)
+
+                        Codigo.Text = ""
+                        Nome.Text = ""
+                        Idade.Text = ""
+                        Escolaridade.Text = ""
+                        Bairro.Text = ""
+                        Cidade.Text = ""
+                        Estado.Text = ""
+                        CEP.Text = ""
+
+                        DataGridView1.DataSource = pesquisa.PesquisaProduto()
+
+                    Else
+
+                        Altera.AlteraCadastro(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
+
+                        MessageBox.Show(Altera.mensagem)
+
+                        Codigo.Text = ""
+                        Nome.Text = ""
+                        Idade.Text = ""
+                        Escolaridade.Text = ""
+                        Bairro.Text = ""
+                        Cidade.Text = ""
+                        Estado.Text = ""
+                        CEP.Text = ""
+
+                        DataGridView1.DataSource = pesquisa.PesquisaProduto()
+
+
+
+
+                    End If
+
+                Else
+
+                    Exit Sub
+                    End If
+
+            Else
 
                 valor.Cadastra_usuário(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
                 MessageBox.Show(valor.mensagem)
@@ -60,30 +113,9 @@
                 CEP.Text = ""
 
                 DataGridView1.DataSource = pesquisa.PesquisaProduto()
-            Else
 
-                If MsgBox("Esse cadastro já existe, deseja alterar o cadastro?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
-                    Altera.AlteraCadastro(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
 
-                    MessageBox.Show(Altera.mensagem)
-
-                    Codigo.Text = ""
-                    Nome.Text = ""
-                    Idade.Text = ""
-                    Escolaridade.Text = ""
-                    Bairro.Text = ""
-                    Cidade.Text = ""
-                    Estado.Text = ""
-                    CEP.Text = ""
-
-                    DataGridView1.DataSource = pesquisa.PesquisaProduto()
-
-                Else
-
-                    Exit Sub
-
-                End If
             End If
         End If
 
@@ -145,6 +177,14 @@
 
         DataGridView1.DataSource = pesquisa.PesquisaProduto()
         DataGridView1.Columns("Id").Visible = False
+        DataGridView1.Columns("Codigo").Width = 60
+        DataGridView1.Columns("Nome").Width = 250
+        DataGridView1.Columns("Idade").Width = 60
+        DataGridView1.Columns("Escolaridade").Width = 170
+        DataGridView1.Columns("Bairro").Width = 150
+        DataGridView1.Columns("Estado").Width = 150
+        DataGridView1.Columns("Cidade").Width = 180
+        DataGridView1.Columns("CEP").Width = 76
 
     End Sub
 
