@@ -13,8 +13,8 @@ Public Class BuscaInformações
     Public Cidade2 As String
     Public Estado2 As String
     Public Cep2 As String
-    Public Sub BuscaInformações(Codigo As Integer)
 
+    Public Sub BuscaInformações(Codigo As Integer)
 
         cmd.CommandText = "Select * from CadastroPessoa Where Codigo = '" & Codigo & "'"
 
@@ -34,7 +34,6 @@ Public Class BuscaInformações
                 Cidade2 = dr("Cidade").ToString
                 Estado2 = dr("Estado").ToString
                 Cep2 = dr("Cep").ToString
-
 
             End While
 
