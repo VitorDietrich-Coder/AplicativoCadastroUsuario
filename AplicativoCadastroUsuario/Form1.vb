@@ -88,15 +88,13 @@
 
                         DataGridView1.DataSource = pesquisa.PesquisaProduto()
 
-
-
-
                     End If
 
                 Else
 
                     Exit Sub
-                    End If
+
+                End If
 
             Else
 
@@ -113,8 +111,6 @@
                 CEP.Text = ""
 
                 DataGridView1.DataSource = pesquisa.PesquisaProduto()
-
-
 
             End If
         End If
