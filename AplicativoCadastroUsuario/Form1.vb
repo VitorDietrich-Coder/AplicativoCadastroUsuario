@@ -227,11 +227,7 @@
         Dim Controla As ControlaExclusao = New ControlaExclusao()
         Dim busca As BuscaInformações = New BuscaInformações()
 
-
-
         If Codigo.Text = vbNullString Then
-
-
 
         Else
 
@@ -248,10 +244,6 @@
                 Cidade.Text = busca.Cidade2
                 Estado.Text = busca.Estado2
                 CEP.Text = busca.Cep2
-
-
-
-
 
             End If
         End If

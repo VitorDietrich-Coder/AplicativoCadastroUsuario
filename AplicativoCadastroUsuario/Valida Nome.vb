@@ -11,7 +11,6 @@ Public Class Valida_Nome
     Public Codigo2 As Integer
     Public Nome2 As String
 
-
     Public Sub Valida_Nome(Nome As String)
 
         cmd.CommandText = "select * from CadastroPessoa where Nome = '" & Nome & "' "
