@@ -1,6 +1,6 @@
 ﻿Public Class Form1
 
-    Public pesquisa As PesquisaProduto = New PesquisaProduto()
+    Public pesquisa As PesquisaPessoa = New PesquisaPessoa()
     Public valor As Cadastra_usuário = New Cadastra_usuário()
 
 
@@ -68,7 +68,7 @@
                         Estado.Text = ""
                         CEP.Text = ""
 
-                        DataGridView1.DataSource = pesquisa.PesquisaProduto()
+                        DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
                     Else
 
@@ -85,7 +85,7 @@
                         Estado.Text = ""
                         CEP.Text = ""
 
-                        DataGridView1.DataSource = pesquisa.PesquisaProduto()
+                        DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
                     End If
 
@@ -109,7 +109,7 @@
                 Estado.Text = ""
                 CEP.Text = ""
 
-                DataGridView1.DataSource = pesquisa.PesquisaProduto()
+                DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
             End If
         End If
@@ -142,7 +142,7 @@
                     Estado.Text = ""
                     CEP.Text = ""
 
-                    DataGridView1.DataSource = pesquisa.PesquisaProduto()
+                    DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
                 Else
 
@@ -168,9 +168,9 @@
     End Sub
 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim pesquisa As PesquisaProduto = New PesquisaProduto()
+        Dim pesquisa As PesquisaPessoa = New PesquisaPessoa()
 
-        DataGridView1.DataSource = pesquisa.PesquisaProduto()
+        DataGridView1.DataSource = pesquisa.PesquisarPessoa()
         DataGridView1.Columns("Id").Visible = False
         DataGridView1.Columns("Codigo").Width = 60
         DataGridView1.Columns("Nome").Width = 250

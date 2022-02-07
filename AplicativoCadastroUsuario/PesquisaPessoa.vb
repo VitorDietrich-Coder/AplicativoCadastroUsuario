@@ -1,14 +1,12 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Data.OleDb
-
-Public Class PesquisaProduto
+Public Class PesquisaPessoa
     Public Conexao As Conexao = New Conexao()
     Public dr As SqlDataReader
     Public mensagem As String = ""
     Public cmd As New SqlCommand()
 
 
-    Public Function PesquisaProduto() As DataTable
+    Public Function PesquisarPessoa() As DataTable
 
         cmd.CommandText = "Select * From CadastroPessoa "
 
@@ -39,4 +37,5 @@ Public Class PesquisaProduto
         End Try
 
     End Function
+
 End Class
