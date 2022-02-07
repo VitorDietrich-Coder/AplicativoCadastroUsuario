@@ -2,7 +2,7 @@
 
     Public pesquisa As PesquisaProduto = New PesquisaProduto()
     Public valor As Cadastra_usuário = New Cadastra_usuário()
-    Public Control As ControlaCAD = New ControlaCAD()
+
 
     Public Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
