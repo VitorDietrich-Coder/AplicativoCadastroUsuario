@@ -50,14 +50,13 @@
 
             If Control.tem Then
 
+                If Nome.Text = Codigo3.Nome2 And (Not (Codigo.Text = Codigo3.Codigo2)) Then
 
-                If MsgBox("Esse Nome ou código já está cadastrado em nossa base de dados, deseja alterar o cadastro já existente?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-
-                    If Nome.Text = Codigo3.Nome2 Then
+                    If MsgBox($"Esse Nome ou código já está cadastrado em nossa base de dados, deseja alterar o cadastro de código {Codigo3.Codigo2} ?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
                         Altera.AlteraCadastro(Codigo3.Codigo2, Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
 
-                        MessageBox.Show(Altera.mensagem)
+                        MessageBox.Show($"Alterado Cadastro código  {Codigo3.Codigo2} com sucesso!!")
 
                         Codigo.Text = ""
                         Nome.Text = ""
@@ -71,6 +70,13 @@
                         DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
                     Else
+                        Exit Sub
+                    End If
+
+
+                Else
+
+                    If MsgBox("Deseja alterar esse cadastro ?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
                         Altera.AlteraCadastro(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
 
@@ -87,32 +93,33 @@
 
                         DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
+
+
+                    Else
+
+                        Exit Sub
+
                     End If
-
-                Else
-
-                    Exit Sub
-
                 End If
 
             Else
 
-                valor.Cadastra_usuário(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
-                MessageBox.Show(valor.mensagem)
+                    valor.Cadastra_usuário(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
+                    MessageBox.Show(valor.mensagem)
 
-                Codigo.Text = ""
-                Nome.Text = ""
-                Idade.Text = ""
-                Escolaridade.Text = ""
-                Bairro.Text = ""
-                Cidade.Text = ""
-                Estado.Text = ""
-                CEP.Text = ""
+                    Codigo.Text = ""
+                    Nome.Text = ""
+                    Idade.Text = ""
+                    Escolaridade.Text = ""
+                    Bairro.Text = ""
+                    Cidade.Text = ""
+                    Estado.Text = ""
+                    CEP.Text = ""
 
-                DataGridView1.DataSource = pesquisa.PesquisarPessoa()
+                    DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
+                End If
             End If
-        End If
 
     End Sub
 
