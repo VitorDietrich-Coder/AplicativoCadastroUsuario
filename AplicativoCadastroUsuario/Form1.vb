@@ -4,11 +4,13 @@
     Public valor As Cadastra_usuário = New Cadastra_usuário()
 
 
+
     Public Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         Dim Altera As AlteraCadastro = New AlteraCadastro()
         Dim Control As ControlaCAD = New ControlaCAD()
         Dim Codigo3 As Valida_Nome = New Valida_Nome()
+
 
         Dim cancela As MsgBoxResult = New MsgBoxResult()
 
@@ -92,8 +94,6 @@
                         CEP.Text = ""
 
                         DataGridView1.DataSource = pesquisa.PesquisarPessoa()
-
-
 
                     Else
 
