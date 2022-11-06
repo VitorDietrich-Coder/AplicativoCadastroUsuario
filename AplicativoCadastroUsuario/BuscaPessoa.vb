@@ -9,9 +9,8 @@ Public Class BuscaPessoa
 
     Public Function Buscar(Codigo As String) As DataTable
 
-        cmd.CommandText = "Select * From CadastroPessoa where Codigo like '%" + Codigo + "' or Nome Like '%" + Codigo + "'or Idade Like '%" + Codigo + "' or Escolaridade Like '%" + Codigo + "' or Bairro Like '%" + Codigo + "' or Cidade Like '%" + Codigo + "' or Estado Like '%" + Codigo + "'  or CEP Like '%" + Codigo + "'"
-
         Try
+            cmd.CommandText = $"Select * From CadastroPessoa where Codigo like '%{Codigo}' or Nome Like '%{Codigo}'or Idade Like '%{Codigo}' or Escolaridade Like '%{Codigo}' or Bairro Like '%{Codigo}' or Cidade Like '%{Codigo}' or Estado Like '%{Codigo}' or CEP Like '%{Codigo}'"
 
             cmd.Connection = Conexao.conectar()
 

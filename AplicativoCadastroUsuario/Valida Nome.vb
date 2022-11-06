@@ -13,9 +13,10 @@ Public Class Valida_Nome
 
     Public Sub Valida_Nome(Nome As String)
 
-        cmd.CommandText = "select * from CadastroPessoa where Nome = '" & Nome & "' "
-
         Try
+
+            cmd.CommandText = $"select * from CadastroPessoa where Nome = '{Nome}' "
+
             cmd.Connection = con.conectar()
 
             cmd.ExecuteNonQuery()
@@ -37,9 +38,6 @@ Public Class Valida_Nome
         Finally
             con.desconectar()
         End Try
-
-
     End Sub
-
 End Class
 

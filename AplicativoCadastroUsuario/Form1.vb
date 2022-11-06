@@ -60,14 +60,7 @@
 
                         MessageBox.Show($"Alterado Cadastro código  {Codigo3.Codigo2} com sucesso!!")
 
-                        Codigo.Text = ""
-                        Nome.Text = ""
-                        Idade.Text = ""
-                        Escolaridade.Text = ""
-                        Bairro.Text = ""
-                        Cidade.Text = ""
-                        Estado.Text = ""
-                        CEP.Text = ""
+                        LimpaCampos.LimpaCampoForm1()
 
                         DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
@@ -83,15 +76,7 @@
                         Altera.AlteraCadastro(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
 
                         MessageBox.Show(Altera.mensagem)
-
-                        Codigo.Text = ""
-                        Nome.Text = ""
-                        Idade.Text = ""
-                        Escolaridade.Text = ""
-                        Bairro.Text = ""
-                        Cidade.Text = ""
-                        Estado.Text = ""
-                        CEP.Text = ""
+                        LimpaCampos.LimpaCampoForm1()
 
                         DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
@@ -104,22 +89,22 @@
 
             Else
 
-                    valor.Cadastra_usuário(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
-                    MessageBox.Show(valor.mensagem)
+                valor.Cadastra_usuário(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
+                MessageBox.Show(valor.mensagem)
 
-                    Codigo.Text = ""
-                    Nome.Text = ""
-                    Idade.Text = ""
-                    Escolaridade.Text = ""
-                    Bairro.Text = ""
-                    Cidade.Text = ""
-                    Estado.Text = ""
-                    CEP.Text = ""
+                Codigo.Text = ""
+                Nome.Text = ""
+                Idade.Text = ""
+                Escolaridade.Text = ""
+                Bairro.Text = ""
+                Cidade.Text = ""
+                Estado.Text = ""
+                CEP.Text = ""
 
-                    DataGridView1.DataSource = pesquisa.PesquisarPessoa()
+                DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
-                End If
             End If
+        End If
 
     End Sub
 
@@ -140,14 +125,7 @@
                     excluir.ExcluiCadastro(Integer.Parse(Codigo.Text))
                     MessageBox.Show(excluir.mensagem)
 
-                    Codigo.Text = ""
-                    Nome.Text = ""
-                    Idade.Text = ""
-                    Escolaridade.Text = ""
-                    Bairro.Text = ""
-                    Cidade.Text = ""
-                    Estado.Text = ""
-                    CEP.Text = ""
+                    LimpaCampos.LimpaCampoForm1()
 
                     DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
@@ -232,26 +210,12 @@
 
     Private Sub Sair_Box(sender As Object, e As EventArgs) Handles Codigo.Leave
         Dim Controla As ControlaExclusao = New ControlaExclusao()
-        Dim busca As BuscaInformações = New BuscaInformações()
+        Dim busca As Busca = New Busca()
 
-        If Codigo.Text = vbNullString Then
-
-        Else
-
+        If Not String.IsNullOrEmpty(Codigo.Text) Then
             Controla.acessa(Codigo.Text)
-
             If Controla.tem Then
-
-                busca.BuscaInformações(Integer.Parse(Codigo.Text))
-
-                Nome.Text = busca.Nome2
-                Idade.Text = busca.Idade2
-                Escolaridade.Text = busca.Escolaridade2
-                Bairro.Text = busca.Bairro2
-                Cidade.Text = busca.Cidade2
-                Estado.Text = busca.Estado2
-                CEP.Text = busca.Cep2
-
+                busca.BuscaInformacoes(Integer.Parse(Codigo.Text))
             End If
         End If
     End Sub
@@ -267,40 +231,28 @@
             Estado.Text = ds.Tables(0).Rows(0)("uf").ToString()
 
         Catch ex As Exception
-
             MessageBox.Show("Digite um valor valido")
-
         End Try
-
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
-        Codigo.Text = ""
-        Nome.Text = ""
-        Idade.Text = ""
-        Escolaridade.Text = ""
-        Bairro.Text = ""
-        Cidade.Text = ""
-        Estado.Text = ""
-        CEP.Text = ""
-
+        LimpaCampos.LimpaCampoForm1()
     End Sub
 
     Private Sub Form_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
-        If (Codigo.Text = vbNullString) And (Nome.Text = vbNullString) And (Idade.Text = vbNullString) And (Escolaridade.Text = vbNullString) And (Bairro.Text = vbNullString) And (Cidade.Text = vbNullString) And (Estado.Text = vbNullString) And (Not (CEP.Text.Length = 9)) Then
-
-        Else
-
+        If Not (String.IsNullOrEmpty(Codigo.Text)) AndAlso
+            (String.IsNullOrEmpty(Nome.Text)) AndAlso
+            (String.IsNullOrEmpty(Idade.Text)) AndAlso
+            (String.IsNullOrEmpty(Escolaridade.Text)) AndAlso
+            (String.IsNullOrEmpty(Bairro.Text)) AndAlso
+            (String.IsNullOrEmpty(Cidade.Text)) AndAlso
+            (String.IsNullOrEmpty(Estado.Text)) AndAlso
+            (Not (CEP.Text.Length = 9)) Then
             If MsgBox("Deseja mesmo sair sem salvar?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-
                 Exit Sub
-
             Else
-
                 e.Cancel = True
-
             End If
         End If
     End Sub

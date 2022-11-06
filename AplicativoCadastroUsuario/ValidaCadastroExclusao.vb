@@ -9,9 +9,10 @@ Public Class ValidaCadastroExclusao
 
     Public Function ValidaCadastroExclusao(Codigo As Integer) As Boolean
 
-        cmd.CommandText = "select * from CadastroPessoa where Codigo = '" & Codigo & "'"
-
         Try
+
+            cmd.CommandText = $"select * from CadastroPessoa where Codigo = '{Codigo}'"
+
             cmd.Connection = con.conectar()
             dr = cmd.ExecuteReader()
             If dr.HasRows Then

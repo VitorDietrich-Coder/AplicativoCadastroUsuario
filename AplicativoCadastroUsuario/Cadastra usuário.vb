@@ -7,16 +7,17 @@ Public Class Cadastra_usuário
 
 
     Public Sub Cadastra_usuário(Codigo As Integer, Nome As String, Idade As Integer, Escolaridade As String, Bairro As String, Cidade As String, Estado As String, CEP As String)
-
-        cmd.CommandText = "Insert into  CadastroPessoa (Codigo, Nome, Idade, Escolaridade, Bairro, Cidade, Estado, CEP ) values ('" & Codigo & "','" & Nome & "', '" & Idade & "','" & Escolaridade & "', '" & Bairro & "','" & Cidade & "','" & Estado & "' ,'" & CEP & "')"
-
         Try
+            cmd.CommandText = $"Insert into  CadastroPessoa 
+                            (Codigo, Nome, Idade, Escolaridade, Bairro, Cidade, Estado, CEP )
+                            values 
+                            ('{Codigo}','{Nome}', '{Idade}','{Escolaridade}', '{Bairro}','{Cidade}','{Estado}' ,'{CEP}')"
+
             cmd.Connection = Conexao.conectar()
 
             cmd.ExecuteNonQuery()
 
             Me.mensagem = "Cadastro efetuado com sucesso"
-
 
         Catch ex As Exception
 

@@ -8,9 +8,8 @@ Public Class PesquisaPessoa
 
     Public Function PesquisarPessoa() As DataTable
 
-        cmd.CommandText = "Select * From CadastroPessoa "
-
         Try
+            cmd.CommandText = "Select * From CadastroPessoa "
 
             cmd.Connection = Conexao.conectar()
 
@@ -35,7 +34,5 @@ Public Class PesquisaPessoa
             Conexao.desconectar()
 
         End Try
-
     End Function
-
 End Class

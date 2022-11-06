@@ -8,11 +8,9 @@ Public Class AlteraCadastro
 
     Public Sub AlteraCadastro(Codigo As Integer, Nome As String, Idade As Integer, Escolaridade As String, Bairro As String, Cidade As String, Estado As String, CEP As String)
 
-        cmd.CommandText = "UPDATE CadastroPessoa SET Codigo = '" & Codigo & "',  Nome = '" & Nome & "', Idade = '" & Idade & "', Escolaridade = '" & Escolaridade & "', Bairro = '" & Bairro & "', Cidade = '" & Cidade & "', Estado = '" & Estado & "', CEP = '" & CEP & "' where Codigo = '" & Codigo & "'"
-
         Try
+            cmd.CommandText = $"UPDATE CadastroPessoa SET Codigo = '{Codigo}',  Nome = '{Nome}', Idade = '{Idade}', Escolaridade = '{Escolaridade}', Bairro = '{Bairro}', Cidade = '{Cidade}', Estado = '{Estado}', CEP = '{CEP}' where Codigo = '{Codigo}'"
             cmd.Connection = Conexao.conectar()
-
             cmd.ExecuteNonQuery()
 
             Me.mensagem = "Cadastro Alterado com sucesso"
@@ -24,6 +22,5 @@ Public Class AlteraCadastro
         Finally
             Conexao.desconectar()
         End Try
-
     End Sub
 End Class
