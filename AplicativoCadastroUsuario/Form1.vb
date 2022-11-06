@@ -92,14 +92,7 @@
                 valor.Cadastra_usuário(Integer.Parse(Codigo.Text), Nome.Text, Integer.Parse(Idade.Text), Escolaridade.Text, Bairro.Text, Cidade.Text, Estado.Text, CEP.Text)
                 MessageBox.Show(valor.mensagem)
 
-                Codigo.Text = ""
-                Nome.Text = ""
-                Idade.Text = ""
-                Escolaridade.Text = ""
-                Bairro.Text = ""
-                Cidade.Text = ""
-                Estado.Text = ""
-                CEP.Text = ""
+                LimpaCampos.LimpaCampoForm1()
 
                 DataGridView1.DataSource = pesquisa.PesquisarPessoa()
 
